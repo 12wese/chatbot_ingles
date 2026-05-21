@@ -1,0 +1,34 @@
+[
+    {
+        "fecha": "2026-05-21 10:04:05",
+        "modelo": "OpenAI GPT-4.1-mini",
+        "nivel": "Principiante",
+        "modo": "Profesor paciente",
+        "usuario": "Hola, mi nombre es Pepito Perez, quiero aprender ingles.\n",
+        "respuesta": "¡Hola Pepito! Mucho gusto. Vamos a aprender inglés paso a paso, muy fácil.\n\nPrimero, te enseño cómo decir tu nombre en inglés:\n\n- \"My name is Pepito Perez.\"  \n  (Mi nombre es Pepito Perez.)\n\n¿Quieres probar a decirlo en inglés? Puedes escribir \"My name is Pepito Perez.\""
+    },
+    {
+        "fecha": "2026-05-21 10:05:19",
+        "modelo": "OpenAI GPT-4.1-mini",
+        "nivel": "Principiante",
+        "modo": "Profesor paciente",
+        "usuario": "Quiero que construyas un plan de estudios para mi que apenas estoy empezando a estudiar.",
+        "respuesta": "Claro, Pepito, aquí tienes un plan sencillo para empezar a aprender inglés:\n\n1. **Saludos y presentaciones**  \n   Aprende a decir \"Hello\" (Hola), \"Goodbye\" (Adiós), \"My name is...\" (Mi nombre es...), y preguntas básicas como \"How are you?\" (¿Cómo estás?).\n\n2. **Números y colores**  \n   Aprende números del 1 al 20 y colores básicos como red (rojo), blue (azul), green (verde).\n\n3. **Vocabulario básico**  \n   Aprende palabras de objetos comunes: book (libro), table (mesa), chair (silla).\n\n4. **Frases simples**  \n   Aprende frases fáciles: \"I like apples.\" (Me gustan las manzanas), \"This is a pen.\" (Esto es un bolígrafo).\n\n5. **Verbo \"to be\"**  \n   Aprende a usar \"I am\", \"You are\", \"He/She is\".\n\n6. **Practicar conversación**  \n   Pequeñas conversaciones, por ejemplo:  \n   - \"What is your name?\"  \n   - \"My name is Pepito.\"\n\n¿Quieres que empecemos con saludos ahora?"
+    },
+    {
+        "fecha": "2026-05-21 12:45:34",
+        "modelo": "OpenAI GPT-4.1-mini",
+        "nivel": "Principiante",
+        "modo": "Profesor paciente",
+        "usuario": "Hola, mi nombre es Pepito Perez, quiero aprender ingles",
+        "respuesta": "Hello, Pepito! Nice to meet you. 😊\n\nLet's start with something simple.  \nIn English, to say your name, you say:  \n**My name is Pepito Perez.**  \nPronunciation: /mai néim is Pepito Perez/\n\nNow, you try! Say your name in English.  \nYou can say: **My name is...** and then your name.  \n\nWould you like to try?"
+    },
+    {
+        "fecha": "2026-05-21 12:45:59",
+        "modelo": "OpenAI GPT-4.1-mini",
+        "nivel": "Principiante",
+        "modo": "Profesor paciente",
+        "usuario": "Quiero que construyas un plan de estudios para mi que apenas estoy empezando a estudiar. ",
+        "respuesta": "¡Claro, Pepito! Aquí tienes un plan de estudios simple y organizado para que empieces a aprender inglés desde cero. \n\n### Plan de estudios para principiante en inglés (Pepito)\n\n---\n\n#### Semana 1: Presentaciones básicas y el verbo “to be”  \n- Saludos: Hello, Hi, Good morning  \n- Decir tu nombre: “My name is…”  \n- Verbo “to be” (ser o estar) en presente:  \n  - I am / You are / He is / She is / It is / We are / They are  \n- Preguntar y responder:  \n  - What is your name?  \n  - Where are you from?  \n\n**Ejercicio:** Practica decir tu nombre y preguntar a alguien su nombre.\n\n---\n\n#### Semana 2: Números y edad  \n- Números del 1 al 20  \n- Preguntar y decir la edad:  \n  - How old are you?  \n  - I am 20 years old.  \n\n**Ejercicio:** Cuenta y di tu edad en inglés. Practica preguntar la edad.\n\n---\n\n#### Semana 3: Nacionalidades y países  \n- Aprender nombres de países  \n- Preguntar y decir la procedencia:  \n  - Where are you from?  \n  - I am from Cuba.  \n- Nacionalidades:  \n  - Cuban, American, Canadian, etc.  \n\n**Ejercicio:** Di de dónde eres y pregunta a otros.\n\n---\n\n#### Semana 4: Familias  \n- Vocabulario de miembros de la familia: mother, father, sister, brother...  \n- Preguntar por la familia:  \n  - Do you have a brother?  \n- Decir información sencilla:  \n  - I have one sister.\n\n**Ejercicio:** Habla sobre tu familia.\n\n---\n\n#### Semana 5: Profesiones y oficios  \n- Vocabulario básico: teacher, doctor, student, etc.  \n- Preguntar y responder sobre el trabajo:  \n  - What is your job?  \n  - I am a teacher.  \n\n**Ejercicio:** Practica decir tu profesión o la de alguien.\n\n---\n\n#### Semana 6: Verbos básicos y frases simples  \n- Verbos comunes en presente simple: eat, drink, go, like  \n- Frases cortas:  \n  - I eat rice.  \n  - She likes music.  \n\n**Ejercicio:** Haz oraciones en presente con esos verbos.\n\n---\n\n### Recomendaciones generales:  \n- Repite en voz alta para practicar pronunciación.  \n- Escucha canciones o videos sencillos en inglés.  \n- No te preocupes si cometes errores; es parte del aprendizaje.  \n- Puedo ayudarte a practicar cada tema.  \n\n¿Quieres que te prepare la lección para la primera semana ahora?"
+    }
+]

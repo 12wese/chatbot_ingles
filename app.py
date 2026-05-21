@@ -2,6 +2,9 @@ import streamlit as st
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import json
+from datetime import datetime
+from pypdf import PdfReader
 
 load_dotenv()
 
@@ -12,8 +15,70 @@ if not api_key:
     
 client = OpenAI(api_key=api_key)
 
+LIBROS_DIR = "libros"
+
+# Carpeta y archivo donde se guardará el historial
+HISTORIAL_DIR = "historial"
+HISTORIAL_FILE = os.path.join(HISTORIAL_DIR, "conversaciones.json")
+
+
+def guardar_conversacion(usuario, respuesta, modelo, nivel, modo):
+    # Crear carpeta historial si no existe
+    os.makedirs(HISTORIAL_DIR, exist_ok=True)
+
+    # Estructura de una conversación
+    nueva_conversacion = {
+        "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "modelo": modelo,
+        "nivel": nivel,
+        "modo": modo,
+        "usuario": usuario,
+        "respuesta": respuesta
+    }
+
+    # Leer historial anterior si existe
+    if os.path.exists(HISTORIAL_FILE):
+        with open(HISTORIAL_FILE, "r", encoding="utf-8") as archivo:
+            historial = json.load(archivo)
+    else:
+        historial = []
+
+    # Agregar nueva conversación
+    historial.append(nueva_conversacion)
+
+    # Guardar historial actualizado
+    with open(HISTORIAL_FILE, "w", encoding="utf-8") as archivo:
+        json.dump(historial, archivo, ensure_ascii=False, indent=4)
+
+
+def leer_libros():
+    textos = []
+
+    if not os.path.exists(LIBROS_DIR):
+        return ""
+
+    for nombre_archivo in os.listdir(LIBROS_DIR):
+        ruta_archivo = os.path.join(LIBROS_DIR, nombre_archivo)
+
+        if nombre_archivo.lower().endswith(".txt"):
+            with open(ruta_archivo, "r", encoding="utf-8") as archivo:
+                textos.append(archivo.read())
+
+        elif nombre_archivo.lower().endswith(".pdf"):
+            reader = PdfReader(ruta_archivo)
+            texto_pdf = ""
+
+            for pagina in reader.pages:
+                texto_pagina = pagina.extract_text()
+                if texto_pagina:
+                    texto_pdf += texto_pagina + "\n"
+
+            textos.append(texto_pdf)
+
+    return "\n\n".join(textos)
+
 st.set_page_config(
-    page_title="English Coach",
+    page_title="INOKI English Teacher",
     page_icon="🇬🇧",
     layout="centered"
 )
@@ -109,6 +174,9 @@ st.markdown(
 if "mensajes" not in st.session_state:
     st.session_state.mensajes = []
 
+if "contenido_libros" not in st.session_state:
+    st.session_state.contenido_libros = leer_libros()
+
 for mensaje in st.session_state.mensajes:
     with st.chat_message(mensaje["rol"]):
         st.write(mensaje["contenido"])
@@ -128,12 +196,17 @@ if pregunta:
     Eres un profesor de inglés para un estudiante de nivel {nivel}.
     Tu modo actual es: {modo}.
 
+    Usa la siguiente información de referencia tomada de libros de inglés cuando sea útil:
+
+    {st.session_state.contenido_libros[:12000]}
+
     Reglas:
     - Explica de forma clara y sencilla.
     - Si el estudiante comete errores, corrígelos con amabilidad.
     - Da ejemplos cortos.
-    - Si responde en español, puedes explicar en español.
+    - Si responde en español, puedes explicar en español e inglés.
     - Si practica conversación, responde en inglés sencillo.
+    - Si la información de los libros no es suficiente, responde con tu conocimiento general.
     """
 
     with st.chat_message("assistant"):
@@ -154,6 +227,14 @@ if pregunta:
 
             texto_respuesta = respuesta.choices[0].message.content
             st.write(texto_respuesta)
+            
+            guardar_conversacion(
+                usuario=pregunta,
+                respuesta=texto_respuesta,
+                modelo="OpenAI GPT-4.1-mini",
+                nivel=nivel,
+                modo=modo
+            )
 
     st.session_state.mensajes.append({
         "rol": "assistant",
