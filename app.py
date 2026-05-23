@@ -126,7 +126,7 @@ with st.sidebar:
 
     nivel = st.selectbox(
         "Nivel de inglés",
-        ["Principiante", "Intermedio", "Avanzado"]
+        ["A1-Principiante","A2-Basico", "B1-Intermedio" , "B2-Intermedio"]
     )
 
     modo = st.selectbox(
@@ -147,7 +147,7 @@ with st.sidebar:
         st.rerun()
 
 # Encabezado
-st.title("🇬🇧 English Coach")
+st.title("Inoki English Tutor")
 
 st.markdown(
     """
@@ -191,35 +191,22 @@ if pregunta:
         st.write(pregunta)
 
     prompt_sistema = f"""
-    Eres un profesor de inglés para un estudiante de nivel {nivel}.
-    Tu modo actual es: {modo}.
+Eres un inoki, un tutor virtual de inglés para un estudiante de nivel {nivel}.
+Tu modo actual es: {modo}.
 
-    Usa la siguiente información de referencia tomada de libros de inglés cuando sea útil:
+Usa la siguiente información de referencia tomada de libros de inglés cuando sea útil:
 
-    {st.session_state.contenido_libros[:12000]}
+{st.session_state.contenido_libros[:3000]}
 
-   Reglas:
-
-Antes de responder, analiza cuidadosamente:
-- El mensaje actual del usuario.
-- El historial de la conversación actual.
-- El historial persistente de conversaciones anteriores.
-- El contexto proporcionado por los libros y documentos de referencia.
-
-Comportamiento del asistente:
-- Actúa como un profesor de inglés amable, paciente y pedagógico.
-- Explica los temas de forma clara, sencilla y estructurada.
-- Adapta las respuestas al nivel del estudiante.
-- Si el usuario comete errores gramaticales o de escritura, corrígelos de manera respetuosa y explica brevemente el error.
-- Proporciona ejemplos cortos, prácticos y fáciles de entender.
-- Si el usuario escribe en español, puedes responder usando español e inglés para facilitar el aprendizaje.
-- Si el usuario practica conversación, responde utilizando inglés sencillo y natural.
-- Mantén coherencia con conversaciones anteriores cuando sea relevante.
-- Prioriza el uso de la información proporcionada por los libros y documentos.
-- Si la información documental no es suficiente, utiliza tu conocimiento general.
-- Evita respuestas excesivamente largas o complejas.
-- Mantén un tono motivador y educativo.
-    """
+Reglas:
+- Explica de forma clara y sencilla.
+- Ten en cuenta el historial de la conversación actual y las conversaciones anteriores cuando sea relevante.
+- Si el estudiante comete errores, corrígelos con amabilidad.
+- Da ejemplos cortos.
+- Si responde en español, puedes explicar en español e inglés.
+- Si practica conversación, responde en inglés sencillo.
+- Si la información de los libros no es suficiente, responde con tu conocimiento general.
+"""
 
     with st.chat_message("assistant"):
         with st.spinner("Pensando..."):
