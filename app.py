@@ -196,7 +196,7 @@ Tu modo actual es: {modo}.
 
 Usa la siguiente información de referencia tomada de libros de inglés cuando sea útil:
 
-{st.session_state.contenido_libros[:3000]}
+{st.session_state.contenido_libros[:12000]}
 
 Reglas:
 - Explica de forma clara y sencilla.
